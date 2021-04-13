@@ -1,0 +1,12 @@
+* AWS Route 53 Zone Association Handshake
+
+Terraform module to authorize and associate a list of Route 53 private Hosted zone to a list of vpc_ids in another AWS account.
+
+This is one way to manage hosted-zone-to-VPC associations to a VPC in different AWS accounts.
+
+** Prerequisites
+
+- Two AWS accounts. One with the hosted zones, and the other with the VPCs.
+- At least one VPC in each account.
+- Way to assume role in both providers from the credentials used to call terraform.
+
