@@ -31,4 +31,11 @@ module "handshake" {
 - Two AWS accounts. One with the hosted zones, and the other with the VPCs.
 - At least one VPC in each account.
 - Way to assume role in both providers from the credentials used to call terraform.
+-
+** Errors
+
+This error is a timing issue between the authorization and the association.
+#+begin_example
+Error: error associating Route 53 Hosted Zone (Z050507915RZVESV2YHGJ) to EC2 VPC (vpc-0cac04ffc6e165683): AccessDenied
+#+end_example
 

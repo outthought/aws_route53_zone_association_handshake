@@ -34,4 +34,8 @@ resource "aws_route53_zone_association" "x" {
   for_each = local.zv_map
   zone_id  = each.value.zone_id
   vpc_id   = each.value.vpc_id
+
+  depends_on = [
+    aws_route53_vpc_association_authorization.x
+  ]
 }
