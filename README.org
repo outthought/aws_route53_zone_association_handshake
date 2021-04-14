@@ -4,6 +4,28 @@ Terraform module to authorize and associate a list of Route 53 private Hosted zo
 
 This is one way to manage hosted-zone-to-VPC associations to a VPC in different AWS accounts.
 
+** Example
+
+#+begin_example hcl
+provider "aws" {
+  alias = "foo"
+}
+
+provider "aws" {
+  alias = "bar"
+}
+
+module "handshake" {
+  source = "github.com/outthought/aws_route53_zone_association_handshake"
+  providers = {
+    aws.zone_provider = aws.foo
+    aws.vpc_provider  = aws.bar
+  }
+  zone_ids = ["Z050507915RZVESV2YHGJ"]
+  vpc_ids  = ["vpc-0cac04ffc6e165683"]
+}
+#+end_example
+
 ** Prerequisites
 
 - Two AWS accounts. One with the hosted zones, and the other with the VPCs.
