@@ -21,7 +21,6 @@ locals {
   }
 }
 
-
 resource "aws_route53_vpc_association_authorization" "x" {
   provider = aws.zone_provider
   for_each = local.zv_map
