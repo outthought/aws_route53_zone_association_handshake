@@ -30,8 +30,9 @@ module "handshake" {
 
 - Two AWS accounts. One with the hosted zones, and the other with the VPCs.
 - At least one VPC in each account.
+- The list of VPCs provided to variable =vpc_ids= must all be from the same region. To associate across region, call the module multiple times for different provider regions.
 - Way to assume role in both providers from the credentials used to call terraform.
--
+
 ** Errors
 
 This error is a timing issue between the authorization and the association.
